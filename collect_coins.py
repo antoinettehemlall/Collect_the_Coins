@@ -11,6 +11,7 @@ class CollectCoins:
 
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Collect the Coins!")
+        self.bg_color = (230, 230, 230)
 
     def run_game(self):
         while True:
@@ -18,11 +19,9 @@ class CollectCoins:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-    def _update_screen(self):
-        """Update images on the screen"""
-        self.screen.fill(self.settings.bg_color)
+            self.screen.fill(self.bg_color)
 
-        pygame.display.flip()
+            pygame.display.flip()
 
 if __name__ == '__main__':
     cc = CollectCoins()
