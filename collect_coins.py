@@ -18,9 +18,19 @@ class CollectCoins:
     def run_game(self):
         while True:
             self._update_screen()
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+            self._check_events()
+
+    def _check_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                self._check_keydown_events(event)
+
+    def _check_keydown_events(self, event):
+        if event.key == pygame.K_ESCAPE:
+            sys.exit()
+
 
 
     def _update_screen(self):
