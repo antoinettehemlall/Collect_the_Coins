@@ -9,7 +9,7 @@ class Car:
         self.image = pygame.image.load('images/Car-2-icon.png')
         self.rect = self.image.get_rect()
 
-        self.rect.midleft = self.screen_rect.midleft
+        self.rect.center = self.screen_rect.center
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
