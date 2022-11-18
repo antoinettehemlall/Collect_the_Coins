@@ -35,11 +35,11 @@ class CollectCoins:
             sys.exit()
         if event.key == pygame.K_RIGHT:
             self.car.moving_right = True
-        if event.key == pygame.K_LEFT:
+        elif event.key == pygame.K_LEFT:
             self.car.moving_left = True
         if event.key == pygame.K_UP:
             self.car.moving_up = True
-        if event.key == pygame.K_DOWN:
+        elif event.key == pygame.K_DOWN:
             self.car.moving_down = True
 
     def _check_keyup_events(self, event):

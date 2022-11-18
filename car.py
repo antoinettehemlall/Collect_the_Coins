@@ -11,7 +11,7 @@ class Car:
         self.image = pygame.image.load('images/Car-2-icon.png')
         self.rect = self.image.get_rect()
 
-        self.rect.center = self.screen_rect.center
+        self.rect.midleft = self.screen_rect.midleft
 
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
@@ -25,7 +25,7 @@ class Car:
         """Update the car's position based on movement flags"""
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.car_speed
-        if self.moving_left and self.rect.left < 0:
+        if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.car_speed
         if self.moving_down and self.rect.bottom <= self.screen_rect.bottom:
             self.y += self.settings.car_speed
