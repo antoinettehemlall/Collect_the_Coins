@@ -19,6 +19,7 @@ class CollectCoins:
         while True:
             self._update_screen()
             self._check_events()
+            self.car.update()
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -26,12 +27,30 @@ class CollectCoins:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
+            elif event.type == pygame.KEYUP:
+                self._check_keyup_events(event)
 
     def _check_keydown_events(self, event):
         if event.key == pygame.K_ESCAPE:
             sys.exit()
+        if event.key == pygame.K_RIGHT:
+            self.car.moving_right = True
+        if event.key == pygame.K_LEFT:
+            self.car.moving_left = True
+        if event.key == pygame.K_UP:
+            self.car.moving_up = True
+        if event.key == pygame.K_DOWN:
+            self.car.moving_down = True
 
-
+    def _check_keyup_events(self, event):
+        if event.key == pygame.K_RIGHT:
+            self.car.moving_right = False
+        elif event.key == pygame.K_LEFT:
+            self.car.moving_left = False
+        if event.key == pygame.K_UP:
+            self.car.moving_up = False
+        elif event.key == pygame.K_DOWN:
+            self.car.moving_down = False
 
     def _update_screen(self):
             self.screen.fill(self.settings.bg_color)
