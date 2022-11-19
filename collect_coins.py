@@ -4,6 +4,26 @@ import pygame
 
 from settings import Settings
 from car import Car
+from coin import Coin
+
+
+#Set colors
+Black = (0, 0, 0)
+
+coin_starting_velocity = 10
+coin_acceleration = .5
+buffer_distance = 100
+
+score = 0
+coin_velocity = coin_starting_velocity
+
+#Set font
+#font = pygame.font.Font('AnkhSanctuary-nROx4.ttf', 32)
+
+#Set text
+#score_text = font.render("Score: " + str(score), True, Black)
+#score_rect = score_text.get_rect()
+#score_rect.topleft = (10, 10)
 
 class CollectCoins:
     def __init__(self):
@@ -14,6 +34,8 @@ class CollectCoins:
         pygame.display.set_caption("Collect the Coins!")
 
         self.car = Car(self)
+        self.coin = Coin(self)
+
 
     def run_game(self):
         while True:
@@ -55,6 +77,7 @@ class CollectCoins:
     def _update_screen(self):
             self.screen.fill(self.settings.bg_color)
             self.car.blitme()
+            self.coin.blitme()
 
             pygame.display.flip()
 
